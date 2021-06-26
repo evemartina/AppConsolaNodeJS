@@ -67,6 +67,21 @@ class Tareas{
 
         });
     }
+
+    toogleTareasCheck( ids =[]){
+        ids.forEach(id =>{
+            const tarea = this._listado[id];
+            if(!tarea.completadoEn){
+                tarea.completadoEn = new Date().toISOString();
+            }
+        });
+        this.listadorArr.forEach( tarea =>{
+            if(!ids.includes(tarea.id)){
+                this._listado[tarea.id].completadoEn = null;
+            }
+        })
+
+    }
 }
 
 
